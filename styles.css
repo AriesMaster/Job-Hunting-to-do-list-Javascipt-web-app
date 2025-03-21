@@ -1,0 +1,496 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .container, body.dark-mode .instructions-container {
+  background-color: #444;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode #task-list li {
+  background-color: #555;
+  border-color: #666;
+}
+
+body.dark-mode .task-text, body.dark-mode .status-dropdown, body.dark-mode .edit-input {
+  color: #fff;
+}
+
+body.dark-mode .delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Navbar Styles */
+nav {
+  background: rgba(0, 123, 255, 0.7); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 123, 255, 0.5); /* Neon glow */
+  color: #fff;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 2px; /* Add spacing between letters */
+  background: linear-gradient(135deg, #f1f8fa, #d2d4d4); /* Gradient text */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Add spacing between letters */
+  transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #00b4db; /* Neon blue on hover */
+  text-shadow: 0 0 5px rgba(0, 180, 219, 0.7); /* Neon glow effect */
+}
+
+#theme-toggle {
+  background: linear-gradient(135deg, #00b4db, #0083b0); /* Gradient background */
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Add spacing between letters */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 180, 219, 0.5); /* Neon glow */
+}
+
+#theme-toggle:hover {
+  background: linear-gradient(135deg, #0083b0, #00b4db); /* Reverse gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 180, 219, 0.7); /* Stronger glow on hover */
+}
+
+/* Main Content Styles */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  flex-grow: 1;
+  word-wrap: break-word;
+}
+
+/* Input Section Styles */
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-section input {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Task List Styles */
+#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#task-list li {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word;
+}
+
+#task-list li.completed {
+  text-decoration: line-through;
+  color: #888;
+  background-color: #e9ecef;
+}
+
+#task-list li:hover {
+  background-color: #e2e6ea;
+}
+
+#task-list li.deleting {
+  animation: fadeOut 0.3s ease;
+}
+
+/* Task Text and Edit Input */
+.task-text {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.edit-input {
+  display: none;
+  width: calc(100% - 70px);
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Status Dropdown */
+.status-dropdown {
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Button Styles */
+#add-task-btn,
+#export-pdf-btn,
+#clear-all-btn,
+.delete-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase text */
+  transition: all 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Add Task Button */
+#add-task-btn {
+  background: linear-gradient(135deg, #28a745, #218838); /* Gradient background */
+  color: #fff;
+}
+
+#add-task-btn:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34); /* Darker gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Export to PDF Button */
+#export-pdf-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+  color: #fff;
+}
+
+#export-pdf-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004080); /* Darker gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Clear All Tasks Button */
+#clear-all-btn {
+  background: linear-gradient(135deg, #dc3545, #c82333); /* Gradient background */
+  color: #fff;
+}
+
+#clear-all-btn:hover {
+  background: linear-gradient(135deg, #c82333, #a71d2a); /* Darker gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Delete Button */
+.delete-btn {
+  background: linear-gradient(135deg, #dc3545, #c82333); /* Gradient background */
+  color: #fff;
+  padding: 8px 16px; /* Slightly smaller padding */
+  font-size: 12px; /* Smaller font size */
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #c82333, #a71d2a); /* Darker gradient on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Progress Bar Styles */
+.progress-container {
+  margin-top: 20px;
+  text-align: center;
+}
+/* Filter Section Styles */
+.filter-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-section label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.filter-section select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-section select:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Dark Mode Filter Styles */
+body.dark-mode .filter-section label {
+  color: #fff;
+}
+
+body.dark-mode .filter-section select {
+  background-color: #444;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .filter-section select:hover {
+  border-color: #00b4db;
+  box-shadow: 0 0 5px rgba(0, 180, 219, 0.5);
+}
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #28a745;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#progress-text {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* How It Works Section */
+.instructions-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.instructions-container h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.instructions-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.instructions-container ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.instructions-container ul li strong {
+  color: #007bff;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: justify;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-content ul li {
+  margin-left: 20px;
+}
+
+.footer-content ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-content ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .input-section input {
+    width: 100%;
+  }
+
+  #task-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-dropdown, .delete-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .instructions-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .instructions-container h2 {
+    font-size: 18px;
+  }
+
+  .instructions-container ul li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .input-section input {
+    font-size: 12px;
+  }
+
+  #task-list li {
+    padding: 8px;
+  }
+
+  .status-dropdown, .delete-btn {
+    font-size: 10px;
+  }
+
+  .instructions-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .instructions-container h2 {
+    font-size: 16px;
+  }
+
+  .instructions-container ul li {
+    font-size: 10px;
+  }
+}

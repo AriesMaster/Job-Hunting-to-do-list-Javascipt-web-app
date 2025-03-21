@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Hunting To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="navbar">
+      <h1>Job Hunting To-Do List</h1>
+      <ul>
+        <li><button id="theme-toggle">Toggle Dark Mode</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Last Export Date -->
+    <div id="last-export-date"></div>
+
+    <h2>Track Your Job Applications</h2>
+
+    <!-- Task Input Section -->
+    <div class="input-section">
+      <label for="task-input">Task Description:</label>
+      <input type="text" id="task-input" placeholder="e.g., Apply for Software Engineer at Google" />
+      
+      <label for="due-date-input">Due Date:</label>
+      <input type="date" id="due-date-input" />
+      
+      <button id="add-task-btn">Add Task</button>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <label for="filter-dropdown">Filter by Status:</label>
+      <select id="filter-dropdown">
+        <option value="All">All</option>
+        <option value="To Do">To Do</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+        <option value="Accepted">Accepted</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Pending Interview">Pending Interview</option>
+        <option value="Employed">Employed</option>
+      </select>
+    </div>
+
+    <!-- Task List -->
+    <ul id="task-list"></ul>
+
+    <!-- Buttons -->
+    <div class="action-buttons">
+      <button id="export-pdf-btn">Export to PDF</button>
+      <button id="clear-all-btn">Clear All Tasks</button>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="instructions-container">
+      <h2>How It Works</h2>
+      <ul>
+        <li><strong>Add Task:</strong> Enter the job hunting task and its due date, then click "Add Task" to add it to your list.</li>
+        <li><strong>Edit Task:</strong> Double-click a task to edit its description.</li>
+        <li><strong>Delete Task:</strong> Click the trash icon (<span>🗑️</span>) to delete a task.</li>
+        <li><strong>Filter Tasks:</strong> Use the filter dropdown to view tasks by status.</li>
+        <li><strong>Export Tasks:</strong> Click "Export to PDF" to download your tasks as a PDF. The export date will be included at the top of the PDF.</li>
+        <li><strong>Auto-Clear:</strong> The list will automatically clear every Saturday.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Job Hunting To-Do List App</p>
+    </div>
+  </footer>
+
+  <!-- Include jsPDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
