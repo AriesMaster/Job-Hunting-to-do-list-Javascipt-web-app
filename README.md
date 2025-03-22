@@ -1,7 +1,7 @@
 # Job Hunting To-Do List Web Application
 
-![App Screenshot (![Screenshot 2025-03-22 020738](https://github.com/user-attachments/assets/b61d68f6-155b-41b5-ab49-f166a423e8e4)
-)]
+App Screenshot (![Screenshot 2025-03-22 020738](https://github.com/user-attachments/assets/b61d68f6-155b-41b5-ab49-f166a423e8e4)
+)
 
 The **Job Hunting To-Do List** is a web application designed to help job seekers track their job applications, tasks, and progress. It allows users to add, edit, delete, and filter tasks, export their task list as a PDF, and toggle between light and dark modes. The app is fully responsive and works on all devices.
 
